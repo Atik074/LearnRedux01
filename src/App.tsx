@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
+import { useAppDispatch, useAppSelector } from "./redux/hook";
 import {
   decreament,
   increament,
@@ -7,8 +7,8 @@ import {
 } from "./redux/feartures/counterSlice";
 
 function App() {
-  const { count } = useSelector((state) => state.counter);
-  const dispatch = useDispatch();
+  const { count } = useAppSelector((state) => state.counter);
+  const dispatch = useAppDispatch();
   return (
     <div className="h-screen w-full flex justify-center items-center">
       <div className=" rounded-lg border border-amber-400 p-10">
@@ -19,7 +19,7 @@ function App() {
           Increment
         </button>
         <button
-          onClick={() => dispatch(increamentByValue({value:5}))}
+          onClick={() => dispatch(increamentByValue(5))}
           className=" mx-4 bg-amber-500  text-xl font-semibold rounded-lg px-6 py-2"
         >
           IncrementByValue
@@ -38,3 +38,4 @@ function App() {
 }
 
 export default App;
+
